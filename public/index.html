@@ -35,9 +35,8 @@
     </div>
     <script>
         const MAX_TIME_BETWEEN_TAPS = 1500
-
+        const bodyTag = document.getElementsByTagName('body')[0]
         let taps = []
-
 
         let resetTimeout
 
@@ -70,6 +69,11 @@
             console.log('Tap Occured', {
                 source
             })
+
+            bodyTag.style.background = '#222'
+            setTimeout(() => {
+                bodyTag.style.background = '#000'
+            }, 75)
 
             clearTimeout(resetTimeout)
             resetTimeout = setTimeout(() => {
