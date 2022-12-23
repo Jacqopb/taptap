@@ -16,7 +16,7 @@
         background-color: #000;
         color: #FFF;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        font-size: 7vw;
+        font-size: 15vw;
         padding: 0;
         margin: 0;
     }
@@ -48,12 +48,12 @@
 
         const calculateAndUpdateBpm = () => {
             if (taps.length == 0) {
-                setMsg('TapTap')
+                setMsg('tap')
                 return
             }
 
             if (taps.length == 1) {
-                setMsg('TapTap!')
+                setMsg('TAP')
                 return
             }
 
@@ -61,7 +61,7 @@
             const endTime = taps[taps.length - 1]
             const numberOfBeats = taps.length - 1 // the first tap marks the start, each tap after that is a beat
 
-            const bpm = Math.floor(10 * (60 / (((endTime - startTime) / 1000) / numberOfBeats))) / 10
+            const bpm = Math.round(60 / (((endTime - startTime) / 1000) / numberOfBeats))
 
             setMsg(bpm)
         }
