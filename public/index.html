@@ -83,16 +83,17 @@
 
 
 
-        document.onkeydown = function (evt) {
-            evt = evt || window.event;
+        document.onkeydown = (event) => {
+            event = event || window.event;
             tapOccured('onkeydown')
         };
 
-        window.addEventListener('touchstart', function () {
+        window.addEventListener('touchstart', (event) => {
+            event.preventDefault();
             tapOccured('touchstart')
         });
 
-        addEventListener('click', (event) => {
+        addEventListener('click', () => {
             tapOccured('click')
         });
 
