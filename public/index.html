@@ -56,11 +56,24 @@
                 return
             }
 
+            if (taps.length > 10) {
+                taps.splice(0, taps.length - 10)
+            }
+
             const startTime = taps[0]
             const endTime = taps[taps.length - 1]
             const numberOfBeats = taps.length - 1 // the first tap marks the start, each tap after that is a beat
 
             const bpm = Math.round(60 / (((endTime - startTime) / 1000) / numberOfBeats))
+
+            console.log('calculated bpm', {
+                tapsLength: taps.length,
+                startTime,
+                endTime,
+                numberOfBeats,
+                bpm,
+                taps,
+            })
 
             setMsg(bpm)
         }
